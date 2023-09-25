@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ShoppingListForm() {
+function ShoppingListForm({addItem}) {
     const [formData, setFormData] = useState({product:"", quantity: 0})
     const handleChange = (evt) => {
         setFormData(currData => {
@@ -11,19 +11,35 @@ function ShoppingListForm() {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Submitted")
+        addItem(formData)
+        console.log(formData)
+        setFormData({product: "", quantity: 0});
+    }
+
 
     return (
-        <form>
-            <h1>Product is: {formData.product} </h1>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="product">Product Name</label>
             <input type="text"
             placeholder="product name"
             name="product"
             id="product"
             onChange={handleChange}
-            value={FormData.product} 
+            value={formData.product} 
             />
-            
+
+            <label htmlFor="quantity">Quantity</label>
+            <input type="number"
+            placeholder="1"
+            name="quantity"
+            id="quantity"
+            onChange={handleChange}
+            value={formData.quantity} 
+            />
+            <button>Add Item</button>
         </form>
     )
 }

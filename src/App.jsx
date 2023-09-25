@@ -2,6 +2,7 @@
 // import Clicker from './Clicker'
 import ShoppingListForm from './ShoppingListForm'
 import './App.css'
+import ShoppingList from './ShoppingList'
 
 
 const properties = [
@@ -15,7 +16,7 @@ const properties = [
 
 function App() {
   return <div>
-    <ShoppingListForm/>
+    <ShoppingList/>    
     {/* <PropertyList properties={properties}/> */}
     {/* <Clicker/> */}
 
